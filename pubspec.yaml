@@ -38,6 +38,7 @@ dependencies:
   provider: ^6.1.5+1
   logger: ^2.8.0
   fluttertoast: ^9.0.0
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_test:

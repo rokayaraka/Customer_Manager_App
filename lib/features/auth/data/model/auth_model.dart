@@ -1,4 +1,4 @@
-class LoginResponseModel {
+class AuthModel {
   final String? userName;
   final String? token;
   final int? userId;
@@ -7,7 +7,7 @@ class LoginResponseModel {
   final String? companyName;
   final String? roleName;
 
-  LoginResponseModel({
+  AuthModel({
     this.userName,
     this.token,
     this.userId,
@@ -17,10 +17,10 @@ class LoginResponseModel {
     this.roleName,
   });
 
-  factory LoginResponseModel.fromJson(
+  factory AuthModel.fromJson(
     Map<String, dynamic> json,
   ) {
-    return LoginResponseModel(
+    return AuthModel(
       userName: json['UserName'],
       token: json['Token'],
       userId: json['UserId'],

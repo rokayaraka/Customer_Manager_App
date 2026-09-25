@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
-part  'network_response.dart';
+part 'network_response.dart';
 
 class NetworkCaller {
   final Logger _logger = Logger();
