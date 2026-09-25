@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
+import 'package:flutter_assignment/features/auth/providers/login_providers.dart';
+import 'package:provider/provider.dart';
+import 'app/customer_manager_app.dart';
 
-import 'features/auth/screens/login_screen.dart';
 
 
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await AuthController().loadAuthData();
   runApp(const MyApp());
 }
 
@@ -15,13 +20,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>LoginProviders(),),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        ),
+        debugShowCheckedModeBanner: false,
+        home: CustomerManagerApp(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
     );
   }
 }

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
+import 'package:flutter_assignment/features/auth/providers/login_providers.dart';
+import 'package:flutter_assignment/features/auth/screens/login_screen.dart';
 import 'package:flutter_assignment/features/customer/screens/customer_details_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 class CustomerListScreen extends StatefulWidget {
   const CustomerListScreen({super.key});
@@ -106,6 +110,12 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
           'Customer List',
           style: TextStyle(color: Colors.white, fontWeight: .bold),
         ),
+        actions: [
+          IconButton(
+            onPressed: _logOut,
+            icon: Icon(Icons.logout, color: Colors.white),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent.shade400,
       ),
@@ -176,6 +186,17 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _logOut() async {
+    await AuthController().clearAuthData();
+    if (!mounted) return;
+    context.read<LoginProviders>().reset();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (_) => const LoginScreen()),
+      (route) => false,
     );
   }
 }

@@ -5,10 +5,10 @@ class Urls {
   static const String imageBaseLink =
       'https://www.hisabplus.com/';
 
-  static const String login = 'LogIn';
+  static const String loginUrl = '${baseLink}LogIn';
 
-  static const String customerList =
-      'GetCustomerList';
+  static const String customerListUrl =
+      '${baseLink}GetCustomerList';
 
   static const String username =
       'admin@gmail.com';

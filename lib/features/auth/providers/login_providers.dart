@@ -14,6 +14,14 @@ class LoginProviders extends ChangeNotifier {
   AuthModel? _authModel;
   AuthModel? get authModel => _authModel;
 
+  void reset(){
+    _loginInProgress=false;
+    _errorMsg=null;
+    _authModel=null;
+
+    notifyListeners();
+  }
+
   Future<bool> login(LoginParams params) async {
     bool isSuccess = false;
     _loginInProgress = true;
@@ -21,7 +29,7 @@ class LoginProviders extends ChangeNotifier {
     notifyListeners();
 
     final String url =
-        '${Urls.login}'
+        '${Urls.loginUrl}'
         '?UserName=${Uri.encodeQueryComponent(params.email)}'
         '&Password=${Uri.encodeQueryComponent(params.password)}'
         '&ComId=${params.companyId}';
