@@ -19,4 +19,14 @@ class Urls {
   static const int companyId = 1;
 
   static const int pageSize = 20;
+
+  static const String customerSortBy='Balance';
+
+  static String customerList(int page){
+    return '${customerListUrl}'
+    '?searchquery='
+    '&pageNo=$page'
+    '&pageSize=$pageSize'
+    '&sortyBy=$customerSortBy';
+  }
 }
