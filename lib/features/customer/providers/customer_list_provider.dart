@@ -5,16 +5,21 @@ import 'package:flutter_assignment/core/service/network/network_caller.dart';
 import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
 
 class CustomerListProvider extends ChangeNotifier {
-  bool _customerListInProgress = false;
+
+  bool _isLoading = false;
+  bool _isLoadingMore = false;
+
+  bool get isLoading =>_isLoading;
+  bool get isLoadingMore=>_isLoadingMore;
+
+
   String? _errormsg;
-  bool _loadMoreInprogress = false;
-
-  bool get customerListInProgress => _customerListInProgress;
   String? get erroeMsg => _errormsg;
-  bool get loadMoreInProgress => _loadMoreInprogress;
 
-  List<CustomerModel> _customerList = [];
-  List<CustomerModel> get customerList => _customerList;
+
+
+ final List<CustomerModel> _customerList = [];
+  List<CustomerModel> get customerList => List.unmodifiable(_customerList);
 
   int _currentPage = 1;
   int _totalPage = 1;
@@ -23,82 +28,93 @@ class CustomerListProvider extends ChangeNotifier {
   int get currentPage => _currentPage;
   int get totalPage => _totalPage;
   int get totalRecord => _totalRecord;
+  bool get hasPreviousPage => _currentPage>1;
+  bool get hasNextpage=>_currentPage<_totalPage;
+
 
   bool get hasMore => _currentPage < _totalPage;
 
-  Future<bool> getCustomerList() async {
-    bool isSuccess = false;
-    _customerListInProgress = true;
-    _errormsg = null;
-    _currentPage = 1;
+  Future<void> getCustomerList({
+    int page =1
+  }) async {
+    if(_isLoading) return;
+    _isLoading=true;
+    _errormsg=null;
+   await _fetchCustomers(page: page);
+    _isLoading = false;
     notifyListeners();
 
-    final NetworkResponse response = await getNetworkCaller().getRequest(
-      Urls.customerList(1)
-    );
 
-    if(response.isSuccess){
-      _customerList.clear();
 
-      final List<dynamic>customerData= response.body['CustomerList']??[];
-
-      for(final item in customerData){
-        _customerList.add(CustomerModel.fromJson(item as Map<String,dynamic>));
-
-      }
-       _updatePageInfo(response.body['PageInfo']);
-       _customerListInProgress=false;
-       notifyListeners();
-       return true;
-       
-    }
-
-    _errormsg = response.errorMessage;
-    _customerListInProgress=false;
-    notifyListeners();
-    return false;
   }
 
-  Future<void> loadMoreCustomer () async{
-    if(_loadMoreInprogress|| hasMore){
+  Future<void> _fetchCustomers({
+    required int page,
+  })async{
+    final String url = Urls.customerList(page);
+    final NetworkResponse response = await getNetworkCaller().getRequest(url);
+    if(!response.isSuccess){
+      _errormsg=response.errorMessage;
       return;
     }
-    _loadMoreInprogress=true;
-    notifyListeners();
-    final int nextPage = _currentPage+1;
-    final NetworkResponse response = await getNetworkCaller().getRequest(Urls.customerList(nextPage));
-    if(response.isSuccess){
-      final List<dynamic>customerData =response.body['CustomerList']??[];
 
-      for(final item in customerData){
-        _customerList.add(CustomerModel.fromJson(item as Map<String,dynamic>));
+    final dynamic body=response.body;
+    if(body is! Map<String,dynamic>){
+      _errormsg="Invalid server response";
+      return;
+    }
 
+    final List<dynamic>customerData = body['CustomerList']??[];
+
+    for (final item in customerData) {
+      if (item is Map<String, dynamic>) {
+        _customerList.add(
+          CustomerModel.fromJson(item),
+        );
       }
-      _updatePageInfo(response.body['PageInfo']);
-      _errormsg=null;
+    }
 
+    final dynamic pageInfo = body['PageInfo'];
+    if(pageInfo is Map<String,dynamic>){
+    _currentPage=_toInt(pageInfo['PageNo'])??_currentPage;
+    _totalPage = _toInt(pageInfo['PageCount'])??_totalPage;
+    _totalRecord =_toInt(pageInfo['TotalRecordCount'])??_totalRecord;
     }
     else{
-      _errormsg=response.errorMessage;
+      _currentPage=page;
     }
-    _loadMoreInprogress=false;
-    notifyListeners();
+    _errormsg=null;
+
   }
+
+    Future<void>nextPage()async{
+      if(!hasNextpage|| _isLoading){
+        return;
+      }
+      await getCustomerList(page: _currentPage+1);
+    }
+
+    Future<void> previousPage()async{
+      if(!hasPreviousPage|| _isLoading){
+        return;
+      }
+      await getCustomerList(page: _currentPage-1);
+    }
 
   Future<void> refreshCustomerList()async{
-    await getCustomerList();
+    await getCustomerList(
+      page: _currentPage,
+    );
   }
 
 
-  void _updatePageInfo(dynamic pageInfo) {
-    if(pageInfo==null){
-      return;
+  int?_toInt(dynamic value){
+    if(value==null) return null;
+    if(value is int){
+      return value;
     }
-    _currentPage=pageInfo['PageNo']??_currentPage;
-    _totalPage = pageInfo['PageCount']??_totalPage;
-    _totalRecord =pageInfo['TotalRecordCount']??_totalRecord;
-
+    return int.tryParse(value.toString());
   }
 
-  
+
 }

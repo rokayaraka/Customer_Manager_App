@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
 import 'package:flutter_assignment/features/auth/providers/login_providers.dart';
+import 'package:flutter_assignment/features/customer/providers/customer_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'app/customer_manager_app.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_)=>LoginProviders(),),
+        ChangeNotifierProvider(create: (_)=>CustomerListProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
