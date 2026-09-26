@@ -6,7 +6,8 @@ The application provides authenticated access to customer data, paginated custom
 
 ## 📱 Screenshots
 
-![alt text](customer_manager_showcase.png)
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/a6653900-2eb2-407e-8b87-d19eb64f7c34" />
+
 
 ## ✨ Features
 
@@ -84,6 +85,7 @@ lib/
 │
 ├── app/
 │   └── get_network_caller.dart
+    └── app_colors.dart     
 │
 ├── core/
 │   ├── constants/
@@ -115,7 +117,6 @@ lib/
 │       │   └── customer_details_screen.dart
 │       └── widgets/
 │           ├── build_error_view.dart
-│           ├── build_pagination.dart
 │           ├── customer_card.dart
 │           ├── customer_details_header.dart
 │           ├── customer_image.dart
@@ -176,31 +177,6 @@ SortyBy
 ```
 
 The application uses the API's pagination metadata to determine the current page, total pages, and total customer records.
-
-## 📄 Pagination
-
-Customer pagination is handled through the API's `PageInfo` response.
-
-Example:
-
-```json
-{
-  "PageInfo": {
-    "PageNo": 1,
-    "PageSize": 20,
-    "PageCount": 18,
-    "TotalRecordCount": 356
-  }
-}
-```
-
-The UI provides:
-
-```text
-[ Previous ]     1 / 18     [ Next ]
-```
-
-The buttons are automatically enabled or disabled according to the current page. A toast message is displayed after changing pages.
 
 ## 👤 Customer Details
 
