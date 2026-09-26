@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
 
 class customerSalesDetails extends StatelessWidget {
   const customerSalesDetails({
-    super.key,
+    super.key, required this.customer,
   });
+
+  final CustomerModel customer;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class customerSalesDetails extends StatelessWidget {
                 ),
               ),
               Text(
-                'Total Due : 37390.00',
+                'Total Due : ${customer.totalDue}',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: .w400,
@@ -40,7 +43,7 @@ class customerSalesDetails extends StatelessWidget {
                 ),
               ),
               Text(
-                "Total Sales value: 0.00",
+                "Total Sales value: ${customer.totalSalesValue}",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: .w400,
@@ -48,7 +51,7 @@ class customerSalesDetails extends StatelessWidget {
                 ),
               ),
               Text(
-                "Total Sales Return Value: 0.00",
+                "Total Sales Return Value: ${customer.totalSalesReturnValue}",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: .w400,
@@ -56,7 +59,7 @@ class customerSalesDetails extends StatelessWidget {
                 ),
               ),
               Text(
-                "LastSalesDate: 0.00 ",
+                "LastSalesDate: ${customer.lastSalesDate} ",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: .w400,
@@ -64,7 +67,7 @@ class customerSalesDetails extends StatelessWidget {
                 ),
               ),
               Text(
-                "LastSoldProduct: 0.00 ",
+                "LastSoldProduct: ${customer.lastSoldProduct} ",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: .w400,
@@ -72,7 +75,7 @@ class customerSalesDetails extends StatelessWidget {
                 ),
               ),
               Text(
-                "LastInvoiceNo: 0.00 ",
+                "LastInvoiceNo: ${customer.lastInvoiceNo} ",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: .w400,
@@ -80,7 +83,7 @@ class customerSalesDetails extends StatelessWidget {
                 ),
               ),
               Text(
-                "Total Collection: 0.00 ",
+                "Total Collection: ${customer.totalCollection} ",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: .w400,

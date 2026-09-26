@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_assignment/features/customer/providers/customer_list_provider.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class BuildPagination extends StatelessWidget {
   const BuildPagination({super.key, required this.provider});

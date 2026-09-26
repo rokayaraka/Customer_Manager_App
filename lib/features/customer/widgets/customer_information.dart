@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
 
 class customerInformation extends StatelessWidget {
   const customerInformation({
-    super.key,
+    super.key, required this.customer,
   });
+
+  final CustomerModel customer;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class customerInformation extends StatelessWidget {
           borderRadius: .circular(12),
            color: Colors.deepPurple.shade100,
         ),
-         height: 150,
+         height: 250,
          width: .infinity, 
         
         child: Padding(
@@ -28,24 +32,24 @@ class customerInformation extends StatelessWidget {
                   fontWeight: .bold,
                   color: Colors.deepPurple.shade700,
                 ),),
-              Text("Email: Customer1@gmail.com",
+              Text('Email : ${customer.email}',
               style: TextStyle(
           fontSize: 16,
           fontWeight: .w400,
           color: Colors.black,
         ),
               ),
-                Text("Phn no: 01717717171",style: TextStyle(
+                Text("Phone: ${customer.phone}",style: TextStyle(
           fontSize: 16,
           fontWeight: .w400,
           color: Colors.black,
         ),),
-              Text("Parmanent Address: palas,narsingdi",style: TextStyle(
+              Text("Primary Address: ${customer.primaryAddress}",style: TextStyle(
           fontSize: 16,
           fontWeight: .w400,
           color: Colors.black,
         ),),
-                Text("Secondary Address: Dhaka,dhaka",style: TextStyle(
+                Text("Secondary Address: ${customer.secondaryAddress}",style: TextStyle(
           fontSize: 16,
           fontWeight: .w400,
           color: Colors.black,
