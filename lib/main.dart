@@ -5,10 +5,6 @@ import 'features/auth/providers/auth_controller.dart';
 import 'features/auth/providers/login_providers.dart';
 import 'features/customer/providers/customer_list_provider.dart';
 
-
-
-
-
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await AuthController().loadAuthData();

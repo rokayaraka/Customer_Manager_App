@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/core/constants/app_colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
@@ -45,6 +46,7 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: const Text(
           'Customer List',
           style: TextStyle(color: Colors.white, fontWeight: .bold),
@@ -56,7 +58,7 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
           ),
         ],
         centerTitle: true,
-        backgroundColor: Colors.deepPurpleAccent.shade400,
+        backgroundColor: AppColors.appBarColor,
       ),
       body: Consumer<CustomerListProvider>(
         builder: (context, provider, child) {

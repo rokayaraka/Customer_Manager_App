@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   late final TextEditingController _emailController;
   late final TextEditingController _passwordController;
-  bool _obscurePassword = false;
+  bool _obscurePassword = true;
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple.shade100,
+      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
       body:  Padding(
           padding: const EdgeInsets.all(10),
@@ -110,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 20),
                   TextFormField(
                     controller: _passwordController,
-                    obscureText: _obscurePassword,
+                    obscureText: !_obscurePassword,
                     keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.done,
                     
@@ -126,8 +126,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         icon: Icon(
                           _obscurePassword
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
                         ),
                       ),
                       border: OutlineInputBorder(
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           )
                           :const Text(
                             'Login',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: .bold),
                           ),
                         ),
                       );

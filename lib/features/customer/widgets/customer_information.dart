@@ -17,7 +17,7 @@ class customerInformation extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: .circular(12),
-           color: Colors.deepPurple.shade100,
+           color: Colors.deepPurple.shade50,
         ),
          height: 250,
          width: .infinity, 

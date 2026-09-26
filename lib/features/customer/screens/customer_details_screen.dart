@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/core/constants/app_colors.dart';
 import '../data/model/customer_model.dart';
 import '../widgets/customer_details_header.dart';
 import '../widgets/customer_information.dart';
@@ -13,7 +14,7 @@ class CustomerDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Customer Details", style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: AppColors.appBarColor,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
