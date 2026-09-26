@@ -1,12 +1,10 @@
 # Customer Manager – Flutter Task
 
-A clean and responsive Flutter customer management application built as a take-home assignment for **Hisab Plus**.
+A clean and responsive Flutter customer management application built as a take home assignment for **Hisab Plus**.
 
-The application provides authenticated access to customer data, paginated customer listing, customer images, customer details, refresh support, error handling, and a simple user-friendly interface.
+The application provides authenticated access to customer data, paginated customer listing, customer images, customer details, refresh support, error handling, and a simple user friendly interface.
 
 ## 📱 Screenshots
-
-### Login Screen
 
 ![alt text](customer_manager_showcase.png)
 
@@ -17,7 +15,7 @@ The application provides authenticated access to customer data, paginated custom
 - 🔑 Authorization token handling
 - 👥 Customer list fetched from REST API
 - 📄 Button-based pagination
-- 🔄 Pull-to-refresh customer list
+- 🔄 Pull to refresh customer list
 - 🖼️ Customer profile/image support
 - 👤 Detailed customer information
 - 💰 Customer sales and balance information
@@ -26,7 +24,7 @@ The application provides authenticated access to customer data, paginated custom
 - 🚪 Logout functionality
 - 📱 Responsive and user-friendly Flutter UI
 - 🧩 Reusable widgets
-- 🏗️ Provider-based state management
+- 🏗️ Provider based state management
 - 🧹 Clean and readable project structure
 
 ## 🛠️ Technology Stack
@@ -254,7 +252,7 @@ When a request fails, the user receives an error message with a **Try Again** ac
 
 ## 🔄 Refresh
 
-The customer list supports pull-to-refresh. The currently selected page is requested again instead of automatically returning to the first page.
+The customer list supports pull to refresh. The currently selected page is requested again instead of automatically returning to the first page.
 
 ## 🚪 Logout
 
@@ -311,14 +309,14 @@ flutter run
 
 ## 🔒 Security Note
 
-This project was created for a take-home assignment using the provided API credentials.
+This project was created for a take home assignment from `gtr` using the provided API credentials.
 
 For production applications:
 
 - Do not hardcode usernames/passwords.
 - Do not commit credentials to GitHub.
 - Store sensitive configuration securely.
-- Use environment-specific configuration.
+- Use environment specific configuration.
 - Handle token expiration securely.
 - Follow appropriate API security practices.
 
