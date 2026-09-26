@@ -39,11 +39,6 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
     if(position.pixels>=position.maxScrollExtent-200){
       provider.nextPage();
     }
-    // if(position.pixels<=-50){
-    //   if(provider.hasPreviousPage&& !provider.isLoading){
-    //     provider.previousPage();
-    //   }
-    // }
   }
   @override
   void dispose() {
@@ -109,30 +104,6 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
 
           return Column(
             children: [
-              // Container(
-              //   width: .infinity,
-              //   padding: .symmetric(horizontal: 16, vertical: 12),
-              //   color: Colors.deepPurple.shade50,
-              //   child: Row(
-              //     mainAxisAlignment: .spaceBetween,
-              //     children: [
-              //       Text(
-              //         'Total: ${provider.totalRecord}',
-              //         style: TextStyle(fontWeight: .w600),
-              //       ),
-
-              //       Text(
-              //         'page ${provider.currentPage} '
-              //         'of ${provider.totalPage}',
-              //         style: TextStyle(
-              //           fontWeight: .w600,
-              //           color: Colors.deepPurple,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-
               Expanded(
                 child: RefreshIndicator(
                   onRefresh: _refreshCustomerList,
@@ -159,8 +130,6 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
                   ),
                 ),
               ),
-
-             // BuildPagination(provider: provider),
             ],
           );
         },
