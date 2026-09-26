@@ -1,6 +1,6 @@
 # Customer Manager – Flutter Task
 
-A clean and responsive Flutter customer management application built as a take-home assignment for **Hisab Plus**.
+A clean and responsive Flutter customer management application built as a take home assignment for **Hisab Plus**.
 
 The application provides authenticated access to customer data, paginated customer listing, customer images, customer details, refresh support, error handling, and a simple user friendly interface.
 
