@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
-import 'package:flutter_assignment/features/auth/providers/login_providers.dart';
-import 'package:flutter_assignment/features/customer/providers/customer_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'app/customer_manager_app.dart';
+import 'features/auth/providers/auth_controller.dart';
+import 'features/auth/providers/login_providers.dart';
+import 'features/customer/providers/customer_list_provider.dart';
 
 
 

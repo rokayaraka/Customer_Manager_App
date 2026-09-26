@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/core/constants/urls.dart';
-import 'package:flutter_assignment/features/auth/data/model/login_params.dart';
-import 'package:flutter_assignment/features/auth/providers/login_providers.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/constants/urls.dart';
 import '../../customer/screens/customer_list_screen.dart';
+import '../data/model/login_params.dart';
+import '../providers/login_providers.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

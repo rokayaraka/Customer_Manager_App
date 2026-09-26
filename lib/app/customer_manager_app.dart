@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
-import 'package:flutter_assignment/features/auth/screens/login_screen.dart';
-import 'package:flutter_assignment/features/customer/screens/customer_list_screen.dart';
+
+import '../features/auth/providers/auth_controller.dart';
+import '../features/auth/screens/login_screen.dart';
+import '../features/customer/screens/customer_list_screen.dart';
+
 
 class CustomerManagerApp extends StatefulWidget {
   const CustomerManagerApp({super.key});

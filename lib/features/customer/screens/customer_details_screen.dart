@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/features/customer/widgets/customer_details_header.dart';
-
 import '../data/model/customer_model.dart';
+import '../widgets/customer_details_header.dart';
 import '../widgets/customer_information.dart';
 import '../widgets/customer_sales_details.dart';
 

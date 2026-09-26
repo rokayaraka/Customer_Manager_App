@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
-import 'package:flutter_assignment/features/auth/providers/login_providers.dart';
-import 'package:flutter_assignment/features/auth/screens/login_screen.dart';
-import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
-import 'package:flutter_assignment/features/customer/providers/customer_list_provider.dart';
-import 'package:flutter_assignment/features/customer/screens/customer_details_screen.dart';
-import 'package:flutter_assignment/features/customer/widgets/build_error_view.dart';
-import 'package:flutter_assignment/features/customer/widgets/build_pagination.dart';
-import 'package:flutter_assignment/features/customer/widgets/customer_card.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
+
+import '../../auth/providers/auth_controller.dart';
+import '../../auth/providers/login_providers.dart';
+import '../../auth/screens/login_screen.dart';
+import '../data/model/customer_model.dart';
+import '../providers/customer_list_provider.dart';
+import '../widgets/build_error_view.dart';
+import '../widgets/build_pagination.dart';
+import '../widgets/customer_card.dart';
+import 'customer_details_screen.dart';
 
 class CustomerListScreen extends StatefulWidget {
   const CustomerListScreen({super.key});

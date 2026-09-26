@@ -1,8 +1,10 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter_assignment/app/get_network_caller.dart';
-import 'package:flutter_assignment/core/constants/urls.dart';
-import 'package:flutter_assignment/core/service/network/network_caller.dart';
-import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
+
+import 'package:flutter/material.dart';
+
+import '../../../app/get_network_caller.dart';
+import '../../../core/constants/urls.dart';
+import '../../../core/service/network/network_caller.dart';
+import '../data/model/customer_model.dart';
 
 class CustomerListProvider extends ChangeNotifier {
 

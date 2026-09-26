@@ -1,5 +1,8 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
+
+
+import 'package:flutter/material.dart';
+
+import '../data/model/customer_model.dart';
 
 class CustomerDetailsScreenProvider extends ChangeNotifier {
   CustomerModel? _customer;

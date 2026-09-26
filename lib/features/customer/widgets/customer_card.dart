@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
-import 'package:flutter_assignment/features/customer/widgets/customer_image.dart';
+
+import '../data/model/customer_model.dart';
+import 'customer_image.dart';
+
 
 class CustomerCard extends StatelessWidget {
   const CustomerCard({super.key, required this.customerModel, required this.onTap});

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/features/customer/providers/customer_list_provider.dart';
+
+import '../providers/customer_list_provider.dart';
+
 
 class BuildErrorView extends StatelessWidget {
   const BuildErrorView({super.key, required this.provider, required this.onRetry});

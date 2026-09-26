@@ -1,5 +1,7 @@
-import 'package:flutter_assignment/core/service/network/network_caller.dart';
-import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
+
+
+import '../core/service/network/network_caller.dart';
+import '../features/auth/providers/auth_controller.dart';
 
 NetworkCaller getNetworkCaller() {
   return NetworkCaller(headers: () {

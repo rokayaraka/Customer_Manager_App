@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/core/constants/urls.dart';
-
+import '../../../core/constants/urls.dart';
 import '../data/model/customer_model.dart';
 
 class CustomerImage extends StatelessWidget {

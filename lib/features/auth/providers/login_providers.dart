@@ -1,10 +1,12 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_assignment/app/get_network_caller.dart';
-import 'package:flutter_assignment/core/constants/urls.dart';
-import 'package:flutter_assignment/core/service/network/network_caller.dart';
-import 'package:flutter_assignment/features/auth/data/model/auth_model.dart';
-import 'package:flutter_assignment/features/auth/data/model/login_params.dart';
-import 'package:flutter_assignment/features/auth/providers/auth_controller.dart';
+
+import '../../../app/get_network_caller.dart';
+import '../../../core/constants/urls.dart';
+import '../../../core/service/network/network_caller.dart';
+import '../data/model/auth_model.dart';
+import '../data/model/login_params.dart';
+import 'auth_controller.dart';
+
 
 class LoginProviders extends ChangeNotifier {
   bool _loginInProgress = false;

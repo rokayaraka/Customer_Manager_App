@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/core/constants/urls.dart';
-import 'package:flutter_assignment/features/customer/data/model/customer_model.dart';
+
+import '../../../core/constants/urls.dart';
+import '../data/model/customer_model.dart';
+
 
 class CustomerDetailsHeader extends StatelessWidget {
   const CustomerDetailsHeader({super.key, required this.customer});
