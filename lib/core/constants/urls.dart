@@ -10,12 +10,7 @@ class Urls {
   static const String customerListUrl =
       '${baseLink}GetCustomerList';
 
-  static const String username =
-      'admin@gmail.com';
-
-  static const String password =
-      'admin1234';
-
+      
   static const int companyId = 1;
 
   static const int pageSize = 20;

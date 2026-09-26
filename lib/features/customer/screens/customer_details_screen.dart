@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/core/constants/app_colors.dart';
+import 'package:flutter_assignment/app/app_colors.dart';
 import '../data/model/customer_model.dart';
 import '../widgets/customer_details_header.dart';
 import '../widgets/customer_information.dart';

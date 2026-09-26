@@ -113,8 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: !_obscurePassword,
                     keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.done,
-                    
-            
                     decoration: InputDecoration(
                       labelText: 'Password',
                       prefixIcon: Icon(Icons.lock_outline),
@@ -143,7 +141,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   const SizedBox(height: 20),
-
                   Consumer<LoginProviders>(
                     builder: (context,provider,child) {
                       return SizedBox(
@@ -180,8 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-        ),
-      
+        ),      
     );
   }
 }

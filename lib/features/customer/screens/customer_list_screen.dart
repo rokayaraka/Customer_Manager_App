@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/core/constants/app_colors.dart';
+import 'package:flutter_assignment/app/app_colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +9,6 @@ import '../../auth/screens/login_screen.dart';
 import '../data/model/customer_model.dart';
 import '../providers/customer_list_provider.dart';
 import '../widgets/build_error_view.dart';
-import '../widgets/build_pagination.dart';
 import '../widgets/customer_card.dart';
 import 'customer_details_screen.dart';
 
@@ -21,18 +20,34 @@ class CustomerListScreen extends StatefulWidget {
 }
 
 class _CustomerListScreenState extends State<CustomerListScreen> {
-  final TextEditingController _searchController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
+    _scrollController.addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<CustomerListProvider>().getCustomerList(page: 1);
     });
   }
+
+  void _onScroll(){
+    
+    if(!_scrollController.hasClients)return;
+    final provider = context.read<CustomerListProvider>();
+    final position= _scrollController.position;
+    if(position.pixels>=position.maxScrollExtent-200){
+      provider.nextPage();
+    }
+    // if(position.pixels<=-50){
+    //   if(provider.hasPreviousPage&& !provider.isLoading){
+    //     provider.previousPage();
+    //   }
+    // }
+  }
   @override
   void dispose() {
-    _searchController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -77,6 +92,7 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
             return RefreshIndicator(
               onRefresh: _refreshCustomerList,
               child: ListView(
+                controller: _scrollController,
                 physics: AlwaysScrollableScrollPhysics(),
                 children: [
                   SizedBox(height: 250),
@@ -93,34 +109,35 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
 
           return Column(
             children: [
-              Container(
-                width: .infinity,
-                padding: .symmetric(horizontal: 16, vertical: 12),
-                color: Colors.deepPurple.shade50,
-                child: Row(
-                  mainAxisAlignment: .spaceBetween,
-                  children: [
-                    Text(
-                      'Total: ${provider.totalRecord}',
-                      style: TextStyle(fontWeight: .w600),
-                    ),
+              // Container(
+              //   width: .infinity,
+              //   padding: .symmetric(horizontal: 16, vertical: 12),
+              //   color: Colors.deepPurple.shade50,
+              //   child: Row(
+              //     mainAxisAlignment: .spaceBetween,
+              //     children: [
+              //       Text(
+              //         'Total: ${provider.totalRecord}',
+              //         style: TextStyle(fontWeight: .w600),
+              //       ),
 
-                    Text(
-                      'page ${provider.currentPage} '
-                      'of ${provider.totalPage}',
-                      style: TextStyle(
-                        fontWeight: .w600,
-                        color: Colors.deepPurple,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              //       Text(
+              //         'page ${provider.currentPage} '
+              //         'of ${provider.totalPage}',
+              //         style: TextStyle(
+              //           fontWeight: .w600,
+              //           color: Colors.deepPurple,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
 
               Expanded(
                 child: RefreshIndicator(
                   onRefresh: _refreshCustomerList,
                   child: ListView.builder(
+                    controller: _scrollController,
                     physics: AlwaysScrollableScrollPhysics(),
                     padding: .all(8),
                     itemCount: provider.customerList.length,
@@ -143,7 +160,7 @@ class _CustomerListScreenState extends State<CustomerListScreen> {
                 ),
               ),
 
-              BuildPagination(provider: provider),
+             // BuildPagination(provider: provider),
             ],
           );
         },

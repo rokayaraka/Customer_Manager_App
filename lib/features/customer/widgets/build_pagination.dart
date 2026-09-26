@@ -62,7 +62,6 @@ class BuildPagination extends StatelessWidget {
                       await provider.nextPage();
                       if(!context.mounted)return;
                      // Fluttertoast.showToast(msg: 'Page ${provider.currentPage} Loaded');
-
                     },
                 icon: Icon(Icons.arrow_forward),
                 label: Text('Next'),

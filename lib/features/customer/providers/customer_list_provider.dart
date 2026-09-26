@@ -46,8 +46,6 @@ class CustomerListProvider extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
 
-
-
   }
 
   Future<void> _fetchCustomers({

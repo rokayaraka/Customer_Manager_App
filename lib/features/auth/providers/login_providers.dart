@@ -20,7 +20,6 @@ class LoginProviders extends ChangeNotifier {
     _loginInProgress=false;
     _errorMsg=null;
     _authModel=null;
-
     notifyListeners();
   }
 

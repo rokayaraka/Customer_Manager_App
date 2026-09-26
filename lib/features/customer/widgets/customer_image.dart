@@ -16,7 +16,6 @@ class CustomerImage extends StatelessWidget {
         child: Icon(Icons.person, size: 30, color: Colors.deepPurple),
       );
     }
-
     final String imageUrl = '${Urls.imageBaseLink}$imagePath';
 
     return CircleAvatar(
@@ -40,8 +39,7 @@ class CustomerImage extends StatelessWidget {
           return const Icon(Icons.person,size: 30,color: Colors.deepPurple,);
         },
         ),
-      ),
-    
+      ),   
     );
   }
 }
